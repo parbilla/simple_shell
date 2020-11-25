@@ -5,6 +5,7 @@
  *
  * Return: A pointer to the input.
  */
+
 char *get_input(void)
 {
 	char *input = NULL;

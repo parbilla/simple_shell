@@ -17,7 +17,7 @@ int init_execution(char **alltokens, char *twc)
 	if (child == 0)
 	{
 		if ((execve(twc, alltokens, NULL)) == -1)
-			perror("Error: ");
+			perror("Error: not found");
 		free(twc);
 		free_all(alltokens);
 		exit(0);

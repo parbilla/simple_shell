@@ -25,6 +25,7 @@ typedef struct builtins
 
 extern char **environ;
 
+int _strcmp(char *s1, char *s2);
 void print_prompt(void);
 char *get_input(void);
 int built_ins(char *input);

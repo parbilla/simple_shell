@@ -25,10 +25,11 @@ char *_strcpy(char *dest, char *src)
 
 /**
  * envi_ron - Take the absolute path of the command
- * @path: a pointer to to a alltokens[0]
+ * @path: a pointer to a alltokens[0]
  *
  * Return: Always 0.
  */
+
 char *envi_ron(char *path)
 {
 	char *copyenv = NULL, *tempenv = NULL, *aux = NULL;
@@ -44,7 +45,7 @@ char *envi_ron(char *path)
 		}
 		_strcpy(copyenv, environ[i]);
 		strtok(copyenv, "=");
-		if (strcmp(copyenv, path) == 0)
+		if (_strcmp(copyenv, path) == 0)
 		{
 			aux = strtok(NULL, "=");
 			tempenv = _strdup(aux);
@@ -95,4 +96,33 @@ char *_strdup(char *str)
 	}
 
 	return (new_str);
+}
+
+/**
+ * *_strcmp - compares strings pointed
+ * @s1: source
+ * @s2: destiny
+ *
+ * Return: result
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	int len1, len2, i, dif;
+
+	for (len1 = 0; s1[len1] != 0; len1++)
+	{
+	}
+	for (len2 = 0; s2[len2] != 0; len2++)
+	{
+	}
+	for (i = 0; i < len1 && i < len2; i++)
+	{
+		if (s1[i] != s2[i])
+		{
+			dif = s1[i] - s2[i];
+			return (dif);
+		}
+	}
+	return (0);
 }

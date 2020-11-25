@@ -33,7 +33,7 @@ char *get_path(char **alltokens)
 		{
 			_strcpy(alltokens[0], tokenwithcommand);
 			free(tokenwithcommand);
-			free(path);
+			/*free(path);*/
 			return (alltokens[0]);
 		}
 		free(tokenwithcommand);

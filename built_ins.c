@@ -1,10 +1,12 @@
 #include "holberton.h"
+
 /**
  * _strlen - get string length.
  * @s: string.
  *
  * Return: length.
  */
+
 int _strlen(char *s)
 {
 	int num = 0;
@@ -20,6 +22,7 @@ int _strlen(char *s)
  *
  * Return: always.
  */
+
 int to_exit(char *input)
 {
 	free(input);

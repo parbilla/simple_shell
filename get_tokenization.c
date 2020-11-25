@@ -1,10 +1,12 @@
 #include "holberton.h"
+
 /**
  * get_tokenization - Tokenize the input
  * @input: pointer to user input
  *
  * Return: Pointer to string tokenized
  */
+
 char **get_tokenization(char *input)
 {
 	char **alltokens = NULL;
@@ -44,4 +46,5 @@ char **get_tokenization(char *input)
 	}
 	alltokens[index] = NULL;
 	return (alltokens);
+
 }
