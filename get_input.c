@@ -19,7 +19,7 @@ char *get_input(void)
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "\n", 1);
 		free(input);
-		exit(-1);
+		exit(0);
 	}
 	if (input[i] == '\n')
 	{
