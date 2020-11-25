@@ -22,8 +22,16 @@ int main(void)
 		alltokens = get_tokenization(input);
 		free(input);
 		twc = get_path(alltokens);
+		if (twc == NULL)
+		{
+			write(1, alltokens[0], _strlen(alltokens[0]));
+			write(1, ": not found\n", 12);
+			free_all(alltokens);
+			free(alltokens);
+			free(twc);
+			continue;
+		}
 		init_execution(alltokens, twc);
 	}
-
 	return (0);
 }

@@ -49,6 +49,7 @@ char *envi_ron(char *path)
 			aux = strtok(NULL, "=");
 			tempenv = _strdup(aux);
 			aux = NULL;
+			free(aux);
 			free(copyenv);
 			return (tempenv);
 		}

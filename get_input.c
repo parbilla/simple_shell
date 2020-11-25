@@ -16,7 +16,8 @@ char *get_input(void)
 
 	if (line == -1)
 	{
-		perror("ERROR: Can't get the input");
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "\n", 1);
 		free(input);
 		exit(-1);
 	}
