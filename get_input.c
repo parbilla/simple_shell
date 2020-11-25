@@ -10,7 +10,7 @@ char *get_input(void)
 	char *input = NULL;
 	size_t len = 0;
 	ssize_t line;
-	int i = 0;
+	int i = 0, c = 0;
 
 	line = getline(&input, &len, stdin);
 
@@ -24,6 +24,16 @@ char *get_input(void)
 	{
 		return (NULL);
 	}
+
+	for(; i < (line - 1); i++)
+	{
+		if(input[i] != ' ')
+			c++;
+	}
+
+	if (c == 0)
+		return (NULL);
+
 	input[line - 1] = '\0';
 	return (input);
 }
