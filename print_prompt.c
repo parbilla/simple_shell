@@ -10,6 +10,6 @@ void print_prompt(void)
 {
 	if (isatty(STDIN_FILENO))
 	{
-	write(1, "lapecera@holberton$ ", 20);
+	write(1, "$ ", 2);
 	}
 }
