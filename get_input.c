@@ -25,9 +25,9 @@ char *get_input(void)
 		return (NULL);
 	}
 
-	for(; i < (line - 1); i++)
+	for (; i < (line - 1); i++)
 	{
-		if(input[i] != ' ')
+		if (input[i] != ' ')
 			c++;
 	}
 
