@@ -28,7 +28,6 @@ int main(void)
 			continue;
 		}
 		init_execution(alltokens, twc);
-		free(input);
 	}
 
 	return (0);
