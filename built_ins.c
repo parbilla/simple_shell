@@ -24,7 +24,7 @@ int to_exit(char *input)
 {
 	free(input);
 	exit(1);
-	return (0);
+/*	return (0);*/
 }
 
 /**
