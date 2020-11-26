@@ -23,10 +23,7 @@ int main(void)
 		free(input);
 		twc = get_path(alltokens);
 		if (twc == NULL)
-		{
-			free(input);
 			continue;
-		}
 		init_execution(alltokens, twc);
 	}
 
