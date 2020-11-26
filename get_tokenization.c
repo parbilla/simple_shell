@@ -35,7 +35,7 @@ char **get_tokenization(char *input)
 			perror("ERROR: Insufficent memory allocation");
 			free(input);
 			free_all(alltokens);
-			exit(-2);
+			exit(2);
 		}
 		/* Copio el token al nuevo string en alltokens[index] */
 		_strcpy(alltokens[index], token);
