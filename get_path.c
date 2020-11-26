@@ -27,7 +27,7 @@ char *get_path(char **alltokens)
 	while (path)
 	{
 		tokenwithslash = str_concat(token, "/");
-		tokenwithcommand = str_concat(tokenwithslash, alltokens[0]);
+      		tokenwithcommand = str_concat(tokenwithslash, alltokens[0]);
 		free(tokenwithslash);
 		if (stat(tokenwithcommand, &st) == 0)
 		{

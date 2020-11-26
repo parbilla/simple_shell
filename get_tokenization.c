@@ -29,7 +29,7 @@ char **get_tokenization(char *input)
 	index = 0;
 	while (token)
 	{
-		alltokens[index] = malloc(sizeof(char) * _strlen(token));
+		alltokens[index] = malloc(sizeof(char) * _strlen(token) + 1);
 		if (alltokens[index] == NULL)
 		{
 			perror("ERROR: Insufficent memory allocation");
