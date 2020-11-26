@@ -12,7 +12,7 @@
 char *get_path(char **alltokens)
 {
 	struct stat st;
-	char *path = NULL;
+	char *path = NULL, *token = NULL;
 	char *tokenwithcommand = NULL, *tokenwithslash = NULL;
 	int i = 0;
 
@@ -23,24 +23,24 @@ char *get_path(char **alltokens)
 		return (alltokens[0]);
 
 	path = envi_ron("PATH");
-	strtok(path, ":");
+	token = strtok(path, ":");
 	while (path)
 	{
-		tokenwithslash = str_concat(path, "/");
+		tokenwithslash = str_concat(token, "/");
 		tokenwithcommand = str_concat(tokenwithslash, alltokens[0]);
 		free(tokenwithslash);
 		if (stat(tokenwithcommand, &st) == 0)
 		{
 			_strcpy(alltokens[0], tokenwithcommand);
 			free(tokenwithcommand);
-			/*free(path);*/
+			free(path);
 			return (alltokens[0]);
 		}
 		free(tokenwithcommand);
-		path = strtok(NULL, ":");
+		token = strtok(NULL, ":");
 		i++;
 	}
-	free(path);
+	path = NULL;
 	return (NULL);
 }
 

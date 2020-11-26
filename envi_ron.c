@@ -25,36 +25,31 @@ char *_strcpy(char *dest, char *src)
 
 /**
  * envi_ron - Take the absolute path of the command
- * @path: a pointer to a alltokens[0]
+ * @path: a pointer to to a alltokens[0]
  *
  * Return: Always 0.
  */
-
 char *envi_ron(char *path)
 {
-	char *copyenv = NULL, *tempenv = NULL, *aux = NULL;
+	char *copyenv = NULL;
 	int i = 0;
 
 	while (environ[i] != NULL)
 	{
-		copyenv = malloc(_strlen(environ[i]) + 1);
-		if (copyenv == NULL)
+		if (_strstr(environ[i], path))
 		{
-			perror("ERROR: Insufficient memory allocation");
-			exit(1);
+			if (environ[i][_strlen(path)] == '=')
+			{
+				copyenv = malloc(_strlen(environ[i]) - _strlen(path));
+				if (copyenv == NULL)
+				{
+					perror("ERROR: Insufficient memory allocation");
+					exit(1);
+				}
+				_strcpy(copyenv, environ[i] + (_strlen(path) + 1));
+				return (copyenv);
+			}
 		}
-		_strcpy(copyenv, environ[i]);
-		strtok(copyenv, "=");
-		if (_strcmp(copyenv, path) == 0)
-		{
-			aux = strtok(NULL, "=");
-			tempenv = _strdup(aux);
-			aux = NULL;
-			free(aux);
-			free(copyenv);
-			return (tempenv);
-		}
-		free(copyenv);
 		i++;
 	}
 	return (NULL);
@@ -68,7 +63,6 @@ char *envi_ron(char *path)
  *
  * Return: Always 0.
  */
-
 char *_strdup(char *str)
 {
 	char *new_str;
@@ -99,30 +93,49 @@ char *_strdup(char *str)
 }
 
 /**
- * *_strcmp - compares strings pointed
- * @s1: source
- * @s2: destiny
- *
- * Return: result
+ * _strcmp - function to compare two strings
+ * @s1: string compared
+ * @s2: string compared
+ * Return:  0 if they are the same and -1 if not
  */
-
 int _strcmp(char *s1, char *s2)
 {
-	int len1, len2, i, dif;
+	int a = 0;
 
-	for (len1 = 0; s1[len1] != 0; len1++)
+	while (s1[a] != '\0' && s2[a] != '\0')
 	{
-	}
-	for (len2 = 0; s2[len2] != 0; len2++)
-	{
-	}
-	for (i = 0; i < len1 && i < len2; i++)
-	{
-		if (s1[i] != s2[i])
-		{
-			dif = s1[i] - s2[i];
-			return (dif);
-		}
+		if (s1[a] != s2[a])
+			return (s1[a] - s2[a]);
+		a++;
 	}
 	return (0);
+}
+/**
+ * _strstr - Write a function that locates a substring.
+ *
+ * @env: string
+ *
+ * @path: substring
+ * Return: Always 0.
+ */
+
+char *_strstr(char *env, char *path)
+
+{
+	int i;
+
+	if (*path == 0)
+		return (env);
+	for (i = 0; path[i] != '\0'; i++)
+	{
+		if (path[i] != env[i])
+		{
+			break;
+		}
+	}
+	if (path[i] == '\0')
+	{
+		return (env);
+	}
+	return (NULL);
 }

@@ -25,7 +25,6 @@ typedef struct builtins
 
 extern char **environ;
 
-int _strcmp(char *s1, char *s2);
 void print_prompt(void);
 char *get_input(void);
 int built_ins(char *input);
@@ -42,4 +41,7 @@ char *_getenv(const char *name);
 void free_all(char **alltokens);
 char *_strcpy(char *dest, char *src);
 char *_strncat(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
+void kill_signal(int sig);
+char *_strstr(char *env, char *path);
 #endif

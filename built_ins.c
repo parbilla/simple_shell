@@ -1,12 +1,10 @@
 #include "holberton.h"
-
 /**
  * _strlen - get string length.
  * @s: string.
  *
  * Return: length.
  */
-
 int _strlen(char *s)
 {
 	int num = 0;
@@ -22,7 +20,6 @@ int _strlen(char *s)
  *
  * Return: always.
  */
-
 int to_exit(char *input)
 {
 	free(input);
@@ -72,7 +69,7 @@ int built_ins(char *input)
 		return (0);
 	while (built_ins[i].name != NULL)
 	{
-		if (strcmp(input, built_ins[i].name) == 0)
+		if (_strcmp(input, built_ins[i].name) == 0)
 		{
 			built_ins[i].f(input);
 			return (0);
