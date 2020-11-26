@@ -24,9 +24,11 @@ int main(void)
 		twc = get_path(alltokens);
 		if (twc == NULL)
 		{
+			free(input);
 			continue;
 		}
 		init_execution(alltokens, twc);
+		free(input);
 	}
 
 	return (0);
