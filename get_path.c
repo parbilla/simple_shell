@@ -24,7 +24,7 @@ char *get_path(char **alltokens)
 
 	path = envi_ron("PATH");
 	token = strtok(path, ":");
-	while (path)
+	while (token)
 	{
 		tokenwithslash = str_concat(token, "/");
 		tokenwithcommand = str_concat(tokenwithslash, alltokens[0]);
