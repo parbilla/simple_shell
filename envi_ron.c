@@ -40,7 +40,7 @@ char *envi_ron(char *path)
 		{
 			if (environ[i][_strlen(path)] == '=')
 			{
-				copyenv = malloc(_strlen(environ[i]) - _strlen(path));
+				copyenv = malloc(_strlen(environ[i]) - _strlen(path) + 1);
 				if (copyenv == NULL)
 				{
 					perror("ERROR: Insufficient memory allocation");
