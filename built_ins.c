@@ -23,7 +23,7 @@ int _strlen(char *s)
 int to_exit(char *input)
 {
 	free(input);
-	exit(1);
+	exit(-1);
 /*	return (0);*/
 }
 
