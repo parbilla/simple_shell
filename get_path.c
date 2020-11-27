@@ -40,7 +40,7 @@ char *get_path(char **alltokens)
 		token = strtok(NULL, ":");
 		i++;
 	}
-	path = NULL;
+	free(path);
 	return (NULL);
 }
 
